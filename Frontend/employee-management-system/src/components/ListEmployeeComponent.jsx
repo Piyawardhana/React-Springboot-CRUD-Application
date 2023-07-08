@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
+import { Link } from 'react-router-dom';
 
 class ListEmployeeComponent extends Component {
 
@@ -19,9 +20,11 @@ class ListEmployeeComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 
-                <h2 className='text-center'>Employees List</h2>
+                <br></br>
+                <Link to='/add-employee' className="btn btn-primary" style={{width: 140}}>Add Employee</Link>
+                <h2 className='text-center' style={{paddingBottom: 20}}>Employees List</h2>
                 <div className='row'>
                     <table className='table table-striped table-bordered'>
 
