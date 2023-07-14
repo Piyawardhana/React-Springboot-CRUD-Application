@@ -28,6 +28,13 @@ class ListEmployeeComponent extends Component {
         this.props.navigate(`/update-employee/${id}`);
     }
 
+    deleteEmployee(id){
+        EmployeeService.deleteEmployee(id).then(res => {
+            this.props.navigate('/employees');
+            window.location.reload(false);
+        });
+    }
+
     render() {
         return (
             <div className="container">
@@ -55,8 +62,9 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
-                                        <td>
+                                        <td style={{textAlign: 'center'}}>
                                             <button onClick={()=> this.editEmployee(employee.id)} className='btn btn-info'><i class="fa fa-edit"></i></button>
+                                            <button style={{marginLeft:10}} onClick={()=> this.deleteEmployee(employee.id)} className='btn btn-danger'><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 )
