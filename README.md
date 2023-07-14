@@ -20,5 +20,5 @@ function using following tools & technologies.</p>
   <li>VS Code</li>
 </ul>
 
-<h3>Screenshots of the final output - <a href="">Click Here</a></h3>
+<h3>Screenshots of the final output - <a href="https://drive.google.com/drive/folders/1py4GVhHMRKceU4mqClwasgADqJML9mS_?usp=sharing">Click Here</a></h3>
 
