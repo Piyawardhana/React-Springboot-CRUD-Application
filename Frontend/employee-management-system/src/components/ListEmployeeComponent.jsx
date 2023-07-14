@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+
+const MyComponentWrapper = () => {
+    const navigate = useNavigate();
+  
+    return <ListEmployeeComponent navigate={navigate} />;
+  };
 
 class ListEmployeeComponent extends Component {
 
@@ -16,6 +22,10 @@ class ListEmployeeComponent extends Component {
         EmployeeService.getEmployees().then((res) => {
             this.setState({employees: res.data});
         });
+    }
+
+    editEmployee(id){
+        this.props.navigate(`/update-employee/${id}`);
     }
 
     render() {
@@ -45,6 +55,9 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
+                                        <td>
+                                            <button onClick={()=> this.editEmployee(employee.id)} className='btn btn-info'><i class="fa fa-edit"></i></button>
+                                        </td>
                                     </tr>
                                 )
                             }
@@ -58,4 +71,4 @@ class ListEmployeeComponent extends Component {
     }
 }
 
-export default ListEmployeeComponent;
+export default MyComponentWrapper;
