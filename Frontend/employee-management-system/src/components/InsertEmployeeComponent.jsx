@@ -50,6 +50,12 @@ class InsertEmployee extends Component {
             this.props.navigate('/employees');
         });
     }
+
+    cancel = (e) =>{
+
+            this.props.navigate('/employees');
+            
+    }
     
     render() {
         return (
@@ -75,7 +81,7 @@ class InsertEmployee extends Component {
                                 <button type="submit" className="btn btn-success" style={{width: 80}} onClick={this.saveEmployee.bind(this)}>Save</button>
                             </div>
                             <div style={{paddingLeft : 20}}>
-                                <button type="submit" className="btn btn-danger" style={{width: 80}}>Cancel</button>
+                                <button type="submit" className="btn btn-danger" style={{width: 80}} onClick={this.cancel.bind(this)}>Cancel</button>
                             </div>
                         </div>
 

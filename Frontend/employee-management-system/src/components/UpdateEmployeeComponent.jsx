@@ -3,8 +3,8 @@ import EmployeeService from '../services/EmployeeService';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const UpdateEmployee = () => {
-  
-  const {id} = useParams();
+
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState('');
@@ -50,10 +50,16 @@ const UpdateEmployee = () => {
     console.log('employee => ' + JSON.stringify(employee));
 
     EmployeeService.updateEmployee(id, employee).then(res => {
-        navigate('/employees');
+      navigate('/employees');
     });
 
   };
+
+  const cancel = (e) => {
+
+    navigate('/employees');
+
+  }
 
   return (
     <div className='center'>
@@ -108,7 +114,7 @@ const UpdateEmployee = () => {
               </button>
             </div>
             <div style={{ paddingLeft: 20 }}>
-              <button type='submit' className='btn btn-danger' style={{ width: 80 }}>
+              <button type='submit' className='btn btn-danger' style={{ width: 80 }} onClick={cancel}>
                 Cancel
               </button>
             </div>
